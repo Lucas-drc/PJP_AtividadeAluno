@@ -1,33 +1,35 @@
-from modelos import Produto, listar_produtos
+from modelos import Aluno, listar_alunos
 
 def exibir_menu():
     print("===================================")
-    print("MENU DE PRODUTOS")
+    print("DIÁRIO DE CLASSE")
     print("0 - Sair")
-    print("1 - Cadastrar")
-    print("2 - Listar")
+    print("1 - Cadastrar aluno")
+    print("2 - Listar alunos")
     print("===================================")
 
-def cadastrar():
-    nome = input("Digite o nome: ")
-    preco = float(input("Digite o preço: "))
-    categoria = input("Digite a categoria: ")
+def cadastrar_aluno():
+    nome_aluno = input("Digite o nome: ")
+    sobrenome_aluno = input("Digite o sobrenome do aluno: ")
+    media_aluno = input("Digite a média do aluno: ")
 
-    produto = Produto(nome, preco, categoria)
-    produto.salvar()
+    aluno = Aluno(nome_aluno, sobrenome_aluno, media_aluno)
+    aluno.salvar()
 
-def mostrar():
-    for produto in listar_produtos():
-        produto.exibir()
+def mostrar_alunos():
+    for aluno in listar_alunos():
+        aluno.exibir()
 
 while True:
+    exibir_menu()
     opcao = input("Digite uma opção: ")
 
     if opcao == "0":
+        print("Saindo...")
         break
     elif opcao =="1":
-        cadastrar()
+        cadastrar_aluno()
     elif opcao =="2":
-        mostrar()
+        mostrar_alunos()
     else:
         print("Opção inválida! Tente novamente!")

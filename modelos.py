@@ -22,8 +22,9 @@ class Aluno:
         conexao = conectar()
         cursor = conexao.cursor()
                 
-        sql = "INSERT INTO produto (nome_aluno, sobrenome_aluno, media_aluno) VALUES (%s, %s, %s)"
-        cursor.execute(sql, (self.nome_aluno, self.sobrenome_aluno, self.media_aluno))
+        sql = "INSERT INTO aluno (nome_aluno, sobrenome_aluno, media_aluno) VALUES (%s, %s, %s)"
+        cursor.execute(sql,(self.nome_aluno, self.sobrenome_aluno, self.media_aluno))
+
         conexao.commit()
         conexao.close()
 
@@ -36,8 +37,8 @@ def listar_alunos():
 
     alunos = []
 
-    for id, nome_aluno, sobrenome_aluno, media_aluno, criado_em in cursor.fetchall():
-        aluno = Aluno(nome_aluno, sobrenome_aluno, media_aluno, id, criado_em)
+    for id_aluno, nome_aluno, sobrenome_aluno, media_aluno, criado_em in cursor.fetchall():
+        aluno = Aluno(nome_aluno, sobrenome_aluno, media_aluno, id_aluno, criado_em)
         alunos.append(aluno)
 
     conexao.close()

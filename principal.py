@@ -6,6 +6,7 @@ def exibir_menu():
     print("0 - Sair")
     print("1 - Cadastrar aluno")
     print("2 - Listar alunos")
+    print("3 - Buscar aluno por ID")
     print("===================================")
 
 def cadastrar_aluno():
@@ -19,6 +20,7 @@ def cadastrar_aluno():
 def mostrar_alunos():
     for aluno in listar_alunos():
         aluno.exibir()
+    
 
 while True:
     exibir_menu()
@@ -31,5 +33,7 @@ while True:
         cadastrar_aluno()
     elif opcao =="2":
         mostrar_alunos()
+    elif opcao =="3":
+        filtrar_aluno()
     else:
         print("Opção inválida! Tente novamente!")
